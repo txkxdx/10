@@ -1,0 +1,46 @@
+#include <ctime>
+#include <iostream>
+using namespace std;
+int main()
+{
+	setlocale(0, "");
+	cout << "Начать игру? \n";
+	cout << "PRESS Y TO START GAME \n";
+	cout << "bailando \n";
+	char a;
+	cin >> a;
+	int _;
+	if (a == 'Y' || a == 'y') {
+		cout << "\x1b[92m[+]Добро пожаловать в игру 'Угадайка'! \n";
+		cout << "Вам необходимо отгадать 3 случайных числа! \n";
+		srand(time(0));
+		int r1 = 1 + rand() % 10;
+		int r2 = 2 + rand() % 10;
+		int r3 = 3 + rand() % 10;
+		int answer;
+		int attempt = 3;
+		int count = 0;
+		while (attempt != 0) {
+			cout << "Введите число: "; cin >> answer;
+
+			if (r1 == answer || r2 == answer || r3 == answer) {
+				count++;
+				cout << "Вы угадали =) \n";
+				cout << "Количество верных ответов: " << count << endl;
+			}
+			else  {
+				cout << "Вы не угадали =( \n";
+				attempt--;
+				cout << "Осталось попыток: " << attempt << endl;
+			}
+		}
+	
+		cin >> _;
+
+	}
+
+
+	
+
+	return 0;
+}
